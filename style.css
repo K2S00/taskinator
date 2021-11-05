@@ -1,3 +1,6 @@
+
+/*features that can create a layout of columns are.... 
+Flexbox, CSS grid, or even the float property.*/
 * {
   box-sizing: border-box;
 }
@@ -216,6 +219,10 @@ footer {
   font-size: 2rem;
 }
 
+/*  media query defines a set of CSS rules that won't be applied
+ unless a certain condition is met. For example,
+  @media screen and (max-width: 900px) is applied when the screen size
+ is equal to or less than 900 pixels wide.  */
 @media screen and (max-width: 980px) {
   form .form-group {
     flex: 1 100%;

@@ -3,6 +3,8 @@
 //global vars
 var formEl = document.querySelector("#task-form");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
+var taskIdCounter = 0;
+
 
 //fuction
 //preventDefaults prevents page from automaticly refreshing
@@ -51,14 +53,28 @@ createTaskEl(taskDataObj);
     var listItemEl = document.createElement("li");
     listItemEl.className = "task-item";
 
+    //Because we're making HTML elements in JavaScript,
+    // we needed to use the DOM method setAttribute() to add our task id. 
+    //The setAttribute() method can be used to add or update any attribute 
+    //on an HTML element, but the only attribute we need for now is data-task-id, 
+    //which we set to the current value of taskIdCounter.
+     
+    // add task id as a custom attribute
+    listItemEl.setAttribute("data-task-id", taskIdCounter);
+
 // create div to hold task info and add to list item
 var taskInfoEl = document.createElement("div");
   taskInfoEl.className = "task-info";
   taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
+  
   listItemEl.appendChild(taskInfoEl);
 
  // add entire list item to list
  tasksToDoEl.appendChild(listItemEl);
+
+ // increase task counter for next unique id by 1
+ taskIdCounter++;
+ w
 };
 // this adds an event listner that when the form  is submited 
 // it does thetaskFormHandler fuction
