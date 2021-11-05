@@ -11,6 +11,7 @@ var tasksToDoEl = document.querySelector("#tasks-to-do");
 // add a class to the item so our css can read it listItemEl.className = "task-item";
 // append element to the task list tasksToDoEl.appendChild(listItemEl);
 
+//
 var taskFormHandler = function(event) {
   event.preventDefault();
   // when we use [] in a selector we're trying to select an HTML element
@@ -21,10 +22,21 @@ var taskNameInput = document.querySelector("input[name='task-name']").value;
 // getting the value of the <select> dropdown
 var taskTypeInput = document.querySelector("select[name='task-type']").value;
  
+//this code literally says, "if either one or both of the variables are not true, then proceed," 
+ //which is the same as "if either one or both of the variables are false, then proceed."
+// check if input values are empty strings
+if (!taskNameInput || !taskTypeInput) {
+  alert("You need to fill out the task form!");
+  return false;
+  formEl.reset();
+}
+
    // package up data as an object
    var taskDataObj = {
     name: taskNameInput,
     type: taskTypeInput
+
+
 };
 
 // send it as an argument to createTaskEl
